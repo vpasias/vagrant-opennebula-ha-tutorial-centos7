@@ -178,7 +178,7 @@ Vagrant.configure(2) do |config|
           machine.vm.provision :shell, :inline => 'systemctl start chronyd.service'
           # Key-based password-less authentication for vagrant user
           machine.vm.provision :file, source: '~/.vagrant.d/insecure_private_key', destination: '~vagrant/.ssh/id_rsa'
-          machine.vm.provision :shell, :inline => 'yum -y install wget rsync net-tools tcpdump'  # common tools
+          machine.vm.provision :shell, :inline => 'yum -y install wget rsync net-tools tcpdump git vim'  # common tools
           machine.vm.provision :shell, :inline => 'if ! `grep "vagrant insecure public key" ~vagrant/.ssh/authorized_keys > /dev/null`; then wget --no-check-certificate https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub -qO- >> ~vagrant/.ssh/authorized_keys; fi'
         end
       end
