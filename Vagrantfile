@@ -89,7 +89,7 @@ Vagrant.configure(2) do |config|
               p.memory = 65536  # 768 used by windows VM
             end
             p.nested = true
-            p.cpu_mode = host-passthrough
+            p.cpu_mode = "host-passthrough"
             # https://github.com/vagrant-libvirt/vagrant-libvirt: management_network_address defaults to 192.168.121.0/24
             p.management_network_name = 'vagrant-opennebula-ha'
             p.management_network_address = '192.168.122.0/24'
