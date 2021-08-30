@@ -12,7 +12,7 @@ are used to configure `glusterfs` and `opennebula`, and `prometheus` is used for
 The `ansible` modules should be usable also on a physical host infrastructure providing the `nodes`
 are resolving in DNS, contain a bridge network interface, and a block device to be used for `glusterfs`.
 
-The `vagrant` test setup requires 64GB RAM per `node` and 25GB of additional storage space per `node` on the `vagrant` host.
+The `vagrant` test setup requires 64GB RAM per `node` and 200GB of additional storage space per `node` on the `vagrant` host.
 The Raft consensus algorithm used by `opennebula` requires at least 3 `nodes`.
 
 Tested on:
