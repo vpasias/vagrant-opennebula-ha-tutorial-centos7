@@ -25,6 +25,22 @@
       with_items:
         - opennebula-node-kvm
 
+    - name: Configure unix_sock_group to libvirtd.conf 
+      lineinfile:
+        dest:   /etc/libvirt/libvirtd.conf
+        line:   'unix_sock_group = "oneadmin"'
+        state:  present
+      become:      yes
+      become_user: oneadmin
+      
+    - name: Configure unix_sock_rw_perms to libvirtd.conf 
+      lineinfile:
+        dest:   /etc/libvirt/libvirtd.conf
+        line:   'unix_sock_rw_perms = "0777"'
+        state:  present
+      become:      yes
+      become_user: oneadmin     
+      
     - name: Configure DATASTORE_LOCATION to point to the glusterfs mount - opennebula seems to ignore anything other than /var/lib/one/datastores
       lineinfile:
         dest:   config
@@ -32,7 +48,7 @@
         line:   "DATASTORE_LOCATION=/var/lib/one/datastores"
         state:  present
       become:      yes
-      become_user: oneadmin
+      become_user: oneadmin  
  
     - name: Step 2. Installing the Software - restart libvirt
       service:
