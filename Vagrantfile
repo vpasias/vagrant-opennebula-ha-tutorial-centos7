@@ -98,7 +98,7 @@ Vagrant.configure(2) do |config|
             # https://github.com/vagrant-libvirt/vagrant-libvirt/issues/289
             p.default_prefix = ''
             if group == 'one'
-              p.storage :file, :size => '150G', :path => host + '_sdb.img', :allow_existing => false, :shareable => false, :type => 'raw'
+              p.storage :file, :size => '200G', :path => host + '_sdb.img', :allow_existing => false, :shareable => false, :type => 'raw'
             end
           end
           # configure additional network interfaces (eth0 is used by Vagrant for management)
