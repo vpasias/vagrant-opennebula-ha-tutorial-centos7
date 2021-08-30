@@ -82,11 +82,11 @@ Vagrant.configure(2) do |config|
           machine.vm.hostname = host
           machine.vm.provider 'libvirt' do |p|
             if group == 'mgt'
-              p.cpus = 1
-              p.memory = 256
+              p.cpus = 4
+              p.memory = 16384
             else
-              p.cpus = 2
-              p.memory = 1536  # 768 used by windows VM
+              p.cpus = 16
+              p.memory = 65536  # 768 used by windows VM
             end
             p.nested = true
             # https://github.com/vagrant-libvirt/vagrant-libvirt: management_network_address defaults to 192.168.121.0/24
