@@ -36,7 +36,7 @@
 
     - name: install centos-release-gluster package
       package:
-        name:  centos-release-gluster310
+        name:  centos-release-gluster9
         state: present
 
     - name: install glusterfs-server package
