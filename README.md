@@ -104,7 +104,7 @@ Sample Usage
 
 Install the required `vagrant` plugins and bring up the VMs:
 
-        $ git clone https://github.com/marcindulak/vagrant-opennebula-ha-tutorial-centos7.git
+        $ git clone https://github.com/vpasias/vagrant-opennebula-ha-tutorial-centos7.git
         $ cd vagrant-opennebula-ha-tutorial-centos7
         $ for net in `virsh -q net-list --all | grep vagrant-opennebula-ha | awk '{print $1}'`; do virsh net-destroy $net; virsh net-undefine $net; done  # cleanup any leftover networks if this is not the first run
         $ vagrant plugin install landrush
