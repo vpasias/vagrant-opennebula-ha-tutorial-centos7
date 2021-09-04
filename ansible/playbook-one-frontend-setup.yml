@@ -92,7 +92,6 @@
       with_items:
         - opennebula
         - opennebula-sunstone
-      become_user: root  
 
     - name: Wait for opennebula sunstone to start
       wait_for:
