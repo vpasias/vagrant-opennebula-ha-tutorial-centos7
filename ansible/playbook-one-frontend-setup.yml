@@ -1,5 +1,6 @@
 # Following frontend installation instructions from
 # http://docs.opennebula.org/5.4/deployment/opennebula_installation/frontend_installation.html
+#    - opennebula-ruby : not installed
 
 - hosts: one
   strategy: linear
@@ -30,7 +31,6 @@
       with_items:
         - opennebula-server
         - opennebula-sunstone
-        - opennebula-ruby
         - opennebula-java
         - opennebula-gate
         - opennebula-flow
