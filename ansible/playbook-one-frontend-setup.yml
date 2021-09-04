@@ -70,7 +70,7 @@
       become_user: root
 
     - name: Step 4. Ruby Runtime Installation
-      shell:  expect /root/install_gems&& touch /root/install_gems.done
+      shell:  expect /root/install_gems && touch /root/install_gems.done
       args:
         creates: /root/install_gems.done
 
