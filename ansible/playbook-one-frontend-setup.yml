@@ -34,6 +34,9 @@
         - opennebula-gate
         - opennebula-flow
         - opennebula-rubygems
+        - opennebula-provision
+        - opennebula
+        - opennebula-fireedge
 
     - name: Install expect for unattended running of /usr/share/one/install_gems
       yum:
