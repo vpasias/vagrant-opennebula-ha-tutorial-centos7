@@ -79,7 +79,7 @@
 
   tasks:
     - name: Change oneadmin password
-      shell: "echo 'oneadmin:{{ oneadmin_password }}' > /var/lib/one/.one/one_auth&& touch /var/lib/one/.one/one_auth.done"
+      shell: "echo 'oneadmin:{{ oneadmin_password }}' > /var/lib/one/.one/one_auth && touch /var/lib/one/.one/one_auth.done"
       args:
         creates: /var/lib/one/.one/one_auth.done
       become_user: oneadmin
