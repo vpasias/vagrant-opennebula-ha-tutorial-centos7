@@ -1,6 +1,5 @@
 # Following frontend installation instructions from
 # http://docs.opennebula.org/5.4/deployment/opennebula_installation/frontend_installation.html
-#    - opennebula-ruby : not installed
 
 - hosts: one
   strategy: linear
@@ -69,10 +68,10 @@
       when: root_install_gems.stat.exists == False
       become_user: root
 
-    - name: Step 4. Ruby Runtime Installation
-      shell:  expect /root/install_gems && touch /root/install_gems.done
-      args:
-        creates: /root/install_gems.done
+#    - name: Step 4. Ruby Runtime Installation
+#      shell:  expect /root/install_gems && touch /root/install_gems.done
+#     args:
+#       creates: /root/install_gems.done
 
   roles:
 
