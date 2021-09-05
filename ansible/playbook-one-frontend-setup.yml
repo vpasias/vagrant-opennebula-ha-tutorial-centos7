@@ -115,7 +115,7 @@
         url:              "http://{{ ansible_hostname }}:9869"
         url_password:     "{{ oneadmin_password }}"
         url_username:     oneadmin
-        dest:             /home/vagrant
+        dest:             /home/oneadmin/null
         force_basic_auth: yes
       become:      yes
       become_user: oneadmin
