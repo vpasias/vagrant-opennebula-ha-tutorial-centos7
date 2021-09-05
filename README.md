@@ -17,7 +17,7 @@ The Raft consensus algorithm used by `opennebula` requires at least 3 `nodes`.
 
 Tested on:
 
-- Ubuntu 16.04 x86_64, Vagrant 1.9.7
+- Ubuntu 18.04 x86_64, Vagrant 2.2.8
 
 
 ----------------------
