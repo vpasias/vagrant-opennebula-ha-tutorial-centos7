@@ -1,23 +1,15 @@
 vagrant ssh one1.mydomain -c "cat << EOF | sudo tee /etc/modprobe.d/kvm-nested.conf 
 options kvm_intel nested=1 
-EOF"
-
-vagrant ssh one1.mydomain -c "sudo modprobe -r kvm_intel && sudo modprobe kvm_intel"
-
-vagrant ssh one1.mydomain -c "sudo reboot"
-
+EOF" && \
+vagrant ssh one1.mydomain -c "sudo modprobe -r kvm_intel && sudo modprobe kvm_intel" && \
+vagrant ssh one1.mydomain -c "sudo reboot" && \
 vagrant ssh one2.mydomain -c "cat << EOF | sudo tee /etc/modprobe.d/kvm-nested.conf 
 options kvm_intel nested=1 
-EOF"
-
-vagrant ssh one2.mydomain -c "sudo modprobe -r kvm_intel && sudo modprobe kvm_intel"
-
-vagrant ssh one2.mydomain -c "sudo reboot"
-
+EOF" && \
+vagrant ssh one2.mydomain -c "sudo modprobe -r kvm_intel && sudo modprobe kvm_intel" && \
+vagrant ssh one2.mydomain -c "sudo reboot" && \
 vagrant ssh one3.mydomain -c "cat << EOF | sudo tee /etc/modprobe.d/kvm-nested.conf 
 options kvm_intel nested=1 
-EOF"
-
-vagrant ssh one3.mydomain -c "sudo modprobe -r kvm_intel && sudo modprobe kvm_intel"
-
+EOF" && \
+vagrant ssh one3.mydomain -c "sudo modprobe -r kvm_intel && sudo modprobe kvm_intel" && \
 vagrant ssh one3.mydomain -c "sudo reboot"
