@@ -118,7 +118,7 @@
       become:      yes
       become_user: oneadmin
       register:    onezone_show_0_check_leader
-      failed_when: "'leader' not in onezone_show_0_check_leader.stdout or onezone_show_0_check_leader.rc != 0"
+      until: "'leader' not in onezone_show_0_check_leader.stdout or onezone_show_0_check_leader.rc == 0"
 
     - name: Adding more servers - Leader - Create a DB backup in the initial leader
       when: inventory_hostname == opennebula_ha_leader
