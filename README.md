@@ -166,19 +166,19 @@ The older `opennebula` documentation http://docs.opennebula.org/4.14/design_and_
 - update the system, default image, and files datastores to use `gluster`:
 
         $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'onedatastore list'"
-        $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'echo NAME = system > system.one&& echo TM_MAD = shared >> system.one&& echo TYPE = SYSTEM_DS >> system.one'"
+        $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'echo NAME = system > system.one && echo TM_MAD = shared >> system.one && echo TYPE = SYSTEM_DS >> system.one'"
         $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'onedatastore update system system.one'"
         $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'onedatastore list'"
-        $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'echo NAME = default > default.one&& echo DS_MAD = fs >> default.one&& echo TM_MAD = shared >> default.one'"
+        $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'echo NAME = default > default.one && echo DS_MAD = fs >> default.one && echo TM_MAD = shared >> default.one'"
         $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'onedatastore update default default.one'"
-        $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'echo NAME = files > files.one&& echo DS_MAD = fs >> files.one&& echo TM_MAD = shared >> files.one && echo TYPE = FILE_DS >> files.one'"
+        $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'echo NAME = files > files.one && echo DS_MAD = fs >> files.one && echo TM_MAD = shared >> files.one && echo TYPE = FILE_DS >> files.one'"
         $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'onedatastore update files files.one'"
         $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'onedatastore list'"
 
 - create a network template, consisting of potentially three virtual machines (SIZE = 3):
 
         $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'onevnet list'"
-        $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'echo NAME = private > private.one&& echo VN_MAD = dummy >> private.one&& echo BRIDGE = br1 >> private.one&& echo AR = [TYPE = IP4, IP = 192.168.123.100, SIZE = 3] >> private.one&& echo DNS = 192.168.123.1 >> private.one'"
+        $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'echo NAME = private > private.one && echo VN_MAD = dummy >> private.one && echo BRIDGE = br1 >> private.one && echo AR = [TYPE = IP4, IP = 192.168.123.100, SIZE = 3] >> private.one && echo DNS = 192.168.123.1 >> private.one'"
         $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'onevnet create private.one'"
         $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'onevnet list'"
 
