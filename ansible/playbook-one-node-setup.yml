@@ -48,7 +48,7 @@
         line:   "DATASTORE_LOCATION=/var/lib/one/datastores"
         state:  present
       become:      yes
-      become_user: oneadmin  
+      become_user: root  
  
     - name: Step 2. Installing the Software - restart libvirt
       service:
