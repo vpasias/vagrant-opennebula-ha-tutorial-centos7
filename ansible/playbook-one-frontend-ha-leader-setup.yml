@@ -96,15 +96,15 @@
       with_items:
         - opennebula
 
-    - name: Configuration of the initial leader - Leader - check the floating IP - always run (non-idempotent)
-      when: inventory_hostname == opennebula_ha_leader
-      uri:
-        url:         "http://{{ opennebula_ha_floating_ip }}:2633/RPC2"
-        status_code: 405
-        retries:     10
-        delay:       1 
-      register: check_floating_IP
-      until: check_floating_IP.status == 405
+#    - name: Configuration of the initial leader - Leader - check the floating IP - always run (non-idempotent)
+#      when: inventory_hostname == opennebula_ha_leader
+#      uri:
+#        url:         "http://{{ opennebula_ha_floating_ip }}:2633/RPC2"
+#        status_code: 405
+#        retries:     10
+#        delay:       1 
+#      register: check_floating_IP
+#      until: check_floating_IP.status == 405
 
     - name: Configuration of the initial leader - Leader - check the floating IP
       wait_for:
