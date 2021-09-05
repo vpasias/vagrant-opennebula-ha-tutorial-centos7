@@ -43,7 +43,7 @@
       
     - name: Configure DATASTORE_LOCATION to point to the glusterfs mount - opennebula seems to ignore anything other than /var/lib/one/datastores
       lineinfile:
-        dest:   config
+        dest:   /etc/one/oned.conf
         regexp: "DATASTORE_LOCATION=/var/lib/one/datastores"
         line:   "DATASTORE_LOCATION=/var/lib/one/datastores"
         state:  present
