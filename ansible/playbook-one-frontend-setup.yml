@@ -43,33 +43,33 @@
         name:  expect
         state: present        
 
-    - name: Obtain the status of /root/install_gems
-      stat:
-        path: /root/install_gems
-      register: root_install_gems
+#    - name: Obtain the status of /root/install_gems
+#      stat:
+#        path: /root/install_gems
+#      register: root_install_gems
 
-    - name: Create expect file for unattended running of /usr/share/one/install_gems on RHEL
-      blockinfile:
-        path:   /root/install_gems
-        block:  |
-          #!/usr/bin/expect --
-          spawn /bin/ruby /usr/share/one/install_gems
-          expect "1. CentOS/RedHat/Scientific"
-          send "1\r"
-          expect "Press enter to continue..."
-          send "\r"
-          expect "Is this ok \\\[y/d/N\\\]:"
-          send "y\r"
-          expect "Press enter to continue..."
-          send "\r"
-          set timeout -1
-          expect "Abort."
-          puts "Ended expect script."
-        create: yes
-        state:  present
-        marker: "# {mark} CREATED BY ANSIBLE"
-      when: root_install_gems.stat.exists == False
-      become_user: root
+#    - name: Create expect file for unattended running of /usr/share/one/install_gems on RHEL
+#      blockinfile:
+#        path:   /root/install_gems
+#        block:  |
+#          #!/usr/bin/expect --
+#          spawn /bin/ruby /usr/share/one/install_gems
+#          expect "1. CentOS/RedHat/Scientific"
+#          send "1\r"
+#          expect "Press enter to continue..."
+#          send "\r"
+#          expect "Is this ok \\\[y/d/N\\\]:"
+#          send "y\r"
+#          expect "Press enter to continue..."
+#          send "\r"
+#          set timeout -1
+#          expect "Abort."
+#          puts "Ended expect script."
+#        create: yes
+#        state:  present
+#        marker: "# {mark} CREATED BY ANSIBLE"
+#      when: root_install_gems.stat.exists == False
+#      become_user: root
 
 #    - name: Step 4. Ruby Runtime Installation
 #      shell:  expect /root/install_gems && touch /root/install_gems.done
