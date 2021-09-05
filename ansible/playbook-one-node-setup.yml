@@ -31,7 +31,7 @@
         line:   'unix_sock_group = "oneadmin"'
         state:  present
       become:      yes
-      become_user: oneadmin
+      become_user: root
       
     - name: Configure unix_sock_rw_perms to libvirtd.conf 
       lineinfile:
@@ -39,7 +39,7 @@
         line:   'unix_sock_rw_perms = "0777"'
         state:  present
       become:      yes
-      become_user: oneadmin     
+      become_user: root  
       
     - name: Configure DATASTORE_LOCATION to point to the glusterfs mount - opennebula seems to ignore anything other than /var/lib/one/datastores
       lineinfile:
