@@ -185,7 +185,7 @@ The older `opennebula` documentation http://docs.opennebula.org/4.14/design_and_
 - fetch the CentOS 7 image the from OpenNebula's marketplace.
 
         $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'oneimage list'"
-        $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'oneimage create --name centos7 --path http://marketplace.opennebula.systems/appliance/4e3b2788-d174-4151-b026-94bb0b987cbb/download --datastore default --prefix vd --driver qcow2'"
+        $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'oneimage create --name centos7 --path https://marketplace.opennebula.io//appliance/a093aa48-1113-11ea-8c65-f0def1753696/download/0 --datastore default --prefix vd --driver qcow2'"
         $ vagrant ssh one1.mydomain -c "sudo su - oneadmin -c 'oneimage list'"
 
   It takes some time to download this image, but one can proceed with further `opennebula` commands.
