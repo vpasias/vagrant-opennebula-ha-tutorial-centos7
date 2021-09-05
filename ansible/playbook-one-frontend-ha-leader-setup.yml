@@ -104,7 +104,7 @@
         retries:     10
         delay:       1 
       register: check_floating_IP
-      until: check_floating_IP.status_code == 405
+      until: check_floating_IP == 405
 
     - name: Configuration of the initial leader - Leader - check the floating IP
       wait_for:
