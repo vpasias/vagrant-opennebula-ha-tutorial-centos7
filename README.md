@@ -147,7 +147,8 @@ After the VMs are up, `ansible` playbooks are used to configure `gluster` and `o
         $ vagrant ssh mgt1.mydomain -c "ansible-playbook -i /vagrant/ansible/hosts.yml /vagrant/ansible/playbook-one-frontend-ha-follower-setup.yml --extra-vars 'opennebula_ha_follower=one2.mydomain'" || :
         $ vagrant ssh mgt1.mydomain -c "ansible-playbook -i /vagrant/ansible/hosts.yml /vagrant/ansible/playbook-one-frontend-ha-follower-setup.yml --extra-vars 'opennebula_ha_follower=one3.mydomain'" || :
         $ vagrant ssh mgt1.mydomain -c "ansible-playbook -i /vagrant/ansible/hosts.yml /vagrant/ansible/playbook-one-frontend-ha-follower-setup.yml --extra-vars 'opennebula_ha_follower=one3.mydomain'" || :
-$ vagrant ssh one3.mydomain -c "sudo su - oneadmin -c 'onezone show 0'"
+        # Check configuration
+        $ vagrant ssh one3.mydomain -c "sudo su - oneadmin -c 'onezone show 0'"
 
 The recent documentation of `opennebula` http://docs.opennebula.org/5.4/operation/ focuses on actions performed using the sunstone web-interface. sunstone port forwared is by `vagrant` from the guest one1.myadmin:9869 (the current frontend leader) to the `vagrant` host port 19869, or on `apache` reverse-proxy at port 10080, and sunstone is accessible with credentials (defined in Vagrantfile) `oneadmin`/`password`:
 
