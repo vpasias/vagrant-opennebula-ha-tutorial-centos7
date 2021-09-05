@@ -16,7 +16,7 @@
       file:
         path: "/data/glusterfs/{{ gluster_volume_name }}/brick1"
         state: directory
-        mode: 0755
+        mode: 0777
 
     - name: mount the brick directory
       mount:
