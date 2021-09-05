@@ -19,7 +19,7 @@
       file:
         path: "/data/glusterfs/{{ gluster_volume_name }}/brick1"
         state: directory
-        mode: 0755
+        mode: 0777
 
     - name: mount the brick directory
       when: inventory_hostname == gluster_replace_node
@@ -94,7 +94,7 @@
       file:
         path: "/var/lib/one/datastores"
         state: directory
-        mode:  0755
+        mode:  0777
 
     - name: start glusterd service
       when: inventory_hostname == gluster_replace_node
