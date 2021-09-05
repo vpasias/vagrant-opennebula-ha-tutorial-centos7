@@ -72,7 +72,7 @@
       file:
         path: "/var/lib/one/datastores"
         state: directory
-        mode:  0755
+        mode:  0777
 
     - name: "restrict access to the glusterfs volume {{ gluster_volume_name }} to {{ gluster_auth_allow }} - always run (non-idempotent)"
       command: "gluster volume set {{ gluster_volume_name }} auth.allow {{ gluster_auth_allow }}"
