@@ -114,8 +114,20 @@ Install the required `vagrant` plugins and bring up the VMs:
 
 After the VMs are up, `ansible` playbooks are used to configure `gluster` and `opennebula`. Due to common failures when downloading software from the internet, the playbooks will need to be executed until no errors are printed.
 
-- configure the management node: setup apache reverse-proxy for the sunstone interface, and configure prometheus:
+- configure nested KVM at opennebula nodes and the management node: setup apache reverse-proxy for the sunstone interface, and configure prometheus:
 
+        $ vagrant ssh one1.mydomain -c "cat << EOF | sudo tee /etc/modprobe.d/kvm-nested.conf 
+options kvm_intel nested=1 
+EOF"
+        $ vagrant ssh one1.mydomain -c "sudo modprobe -r kvm_intel && modprobe kvm_intel"
+        $ vagrant ssh one2.mydomain -c "cat << EOF | sudo tee /etc/modprobe.d/kvm-nested.conf 
+options kvm_intel nested=1 
+EOF"
+        $ vagrant ssh one2.mydomain -c "sudo modprobe -r kvm_intel && modprobe kvm_intel"
+        $ vagrant ssh one3.mydomain -c "cat << EOF | sudo tee /etc/modprobe.d/kvm-nested.conf 
+options kvm_intel nested=1 
+EOF"
+        $ vagrant ssh one3.mydomain -c "sudo modprobe -r kvm_intel && modprobe kvm_intel"        
         $ vagrant ssh mgt1.mydomain -c "ansible-playbook -i /vagrant/ansible/hosts.yml /vagrant/ansible/playbook-mgt-setup.yml" || :
 
 - configure replicated `gluster` volume with count 3, used as the shared storage for `opennebula`
