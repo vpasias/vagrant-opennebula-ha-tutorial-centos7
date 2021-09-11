@@ -109,7 +109,7 @@ Install the required `vagrant` plugins and bring up the VMs:
         $ for net in `virsh -q net-list --all | grep vagrant-opennebula-ha | awk '{print $1}'`; do virsh net-destroy $net; virsh net-undefine $net; done  # cleanup any leftover networks if this is not the first run
         $ vagrant plugin install landrush
         $ vagrant plugin install vagrant-libvirt
-        $ vagrant net-destroy default && vagrant net-undefine default
+        $ virsh net-destroy default && virsh net-undefine default
         $ vagrant up --no-parallel one1.mydomain one2.mydomain one3.mydomain mgt1.mydomain || :
 
 After the VMs are up, `ansible` playbooks are used to configure `gluster` and `opennebula`. Due to common failures when downloading software from the internet, the playbooks will need to be executed until no errors are printed.
