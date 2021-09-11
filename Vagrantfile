@@ -170,7 +170,7 @@ Vagrant.configure(2) do |config|
           config.landrush.host 'sunstone.' + machine.landrush.tld, '192.168.123.10'
           # Install ansible on all machines
           machine.vm.provision :shell, :inline => 'if ! rpm -q epel-release; then yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm; fi'
-          machine.vm.provision :shell, :inline => 'yum -y install centos-release-scl-rh'
+          # machine.vm.provision :shell, :inline => 'yum -y install centos-release-scl-rh'
           # disable yum fastestmirror plugin
           machine.vm.provision :shell, :inline => 'sed -i "s/^enabled=1/enabled=0/" /etc/yum/pluginconf.d/fastestmirror.conf'
           machine.vm.provision :shell, :inline => 'yum -y install ansible'
